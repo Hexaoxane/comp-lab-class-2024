@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH -n 48      # standard队列单节点52核
+#SBATCH -N 1        # 申请一台节点 高斯只能单节点运行
+#SBATCH -p res_zhy # 使用standard队列
+#SBATCH -t 100:00:00
+
+# 打印任务信息
+echo "Starting job $SLURM_JOB_ID at " `date`
+echo "SLURM_SUBMIT_DIR is $SLURM_SUBMIT_DIR"
+echo "Running on nodes: $SLURM_NODELIST"
+
+# 执行任务
+###  要使用高斯请联系管理员开权限！！
+## IO密集型程序请用 /tmp/$SLURM_JOB_USER/$SLURM_JOB_ID 目录做临时读写 (本地SSD，空间较小)。
+## 若临时文件较大，可在 /work-temp/$SLURM_JOB_USER/$SLURM_JOB_ID 读写。
+module load gaussian/16.A03
+export GAUSS_SCRDIR=/tmp/$SLURM_JOB_USER/$SLURM_JOB_ID
+g16 E.gjf
+
+
+# 任务结束
+echo "Job $SLURM_JOB_ID done at " `date`
