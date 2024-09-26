@@ -1,0 +1,19 @@
+; Molecular dynamics simulation
+integrator  = md            ; Leap-frog integrator
+nsteps      = 5000000       ; 2 * 5000000 = 10 ns
+dt          = 0.002         ; 2 fs
+tcoupl      = V-rescale     ; Temperature coupling
+tc-grps     = Protein Water ; Two coupling groups
+tau_t       = 0.1   0.1     ; Time constant, in ps
+ref_t       = 300    300    ; Reference temperature, in K
+pcoupl      = Parrinello-Rahman  ; Pressure coupling
+pcoupltype  = isotropic     ; Isotropic pressure coupling
+tau_p       = 2.0           ; Time constant, in ps
+ref_p       = 1.0           ; Reference pressure, in bar
+compressibility = 4.5e-5    ; Water compressibility
+gen_vel     = no            ; Do not generate velocities
+constraints = h-bonds          ; 约束所有氢键
+constraint_algorithm = lincs   ; 使用 LINCS 约束算法
+lincs_iter = 1                 ; 每个时间步的 LINCS 迭代次数
+lincs_order = 4                ; LINCS 约束的顺序
+coulombtype = PME
