@@ -1,0 +1,39 @@
+                      :-) GROMACS - gmx mdrun, 2023.3 (-:
+
+Executable:   /ext3/apps/gromacs/2023.3/openmpi/intel/bin/gmx_mpi
+Data prefix:  /ext3/apps/gromacs/2023.3/openmpi/intel
+Working dir:  /scratch/hz3883/week5/comp-lab-class-2024/Week5-ParallelTempering/T300
+Command line:
+  gmx_mpi mdrun -s adp.tpr -deffnm adp
+
+
+Back Off! I just backed up adp.log to ./#adp.log.1#
+Compiled SIMD is AVX2_256, but CPU also supports AVX_512 (see log).
+Reading file adp.tpr, VERSION 2023.3 (single precision)
+Changing nstlist from 10 to 100, rlist from 1 to 1
+
+Update groups can not be used for this system because there are three or more consecutively coupled constraints
+
+Using 8 MPI processes
+
+Non-default thread affinity set, disabling internal thread affinity
+starting mdrun 'Protein'
+7500000 steps,  15000.0 ps.
+
+Writing final coordinates.
+
+
+Dynamic load balancing report:
+ DLB got disabled because it was unsuitable to use.
+ Average load imbalance: 10.6%.
+ The balanceable part of the MD step is 16%, load imbalance is computed from this.
+ Part of the total run time spent waiting due to load imbalance: 1.7%.
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:     4091.008      511.376      800.0
+                 (ns/day)    (hour/ns)
+Performance:     2534.337        0.009
+
+GROMACS reminds you: "Why Weren't You at My Funeral ?" (G. Groenhof)
+

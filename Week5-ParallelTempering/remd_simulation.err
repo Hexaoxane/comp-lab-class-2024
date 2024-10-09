@@ -1,0 +1,57 @@
+                      :-) GROMACS - gmx mdrun, 2023.3 (-:
+
+Reading file adp.tpr, VERSION 2023.3 (single precision)
+Reading file adp.tpr, VERSION 2023.3 (single precision)
+Executable:   /ext3/apps/gromacs/2023.3/openmpi/intel/bin/gmx_mpi
+Data prefix:  /ext3/apps/gromacs/2023.3/openmpi/intel
+Working dir:  /scratch/hz3883/week5/comp-lab-class-2024/Week5-ParallelTempering
+Command line:
+  gmx_mpi mdrun -s adp -multidir T300/ T400/ T600/ -deffnm adp_exchange3temps -replex 500
+
+Compiled SIMD is AVX2_256, but CPU also supports AVX_512 (see log).
+Reading file adp.tpr, VERSION 2023.3 (single precision)
+Changing nstlist from 10 to 50, rlist from 1 to 1
+
+Update groups can not be used for this system because there are three or more consecutively coupled constraints
+
+This is simulation 2 out of 3 running as a composite GROMACS
+multi-simulation job. Setup for this simulation:
+
+Using 1 MPI process
+Changing nstlist from 10 to 100, rlist from 1 to 1
+
+Changing nstlist from 10 to 80, rlist from 1 to 1
+
+Update groups can not be used for this system because there are three or more consecutively coupled constraints
+Update groups can not be used for this system because there are three or more consecutively coupled constraints
+
+This is simulation 0 out of 3 running as a composite GROMACS
+multi-simulation job. Setup for this simulation:
+
+Using 1 MPI process
+
+This is simulation 1 out of 3 running as a composite GROMACS
+multi-simulation job. Setup for this simulation:
+
+Using 1 MPI process
+
+Non-default thread affinity set, disabling internal thread affinity
+
+Non-default thread affinity set, disabling internal thread affinity
+
+Non-default thread affinity set, disabling internal thread affinity
+starting mdrun 'Protein'
+7500000 steps,  15000.0 ps.
+starting mdrun 'Protein'
+7500000 steps,  15000.0 ps.
+starting mdrun 'Protein'
+7500000 steps,  15000.0 ps.
+
+Writing final coordinates.
+
+Writing final coordinates.
+
+Writing final coordinates.
+
+GROMACS reminds you: "It is not critical to add the next quote to a patch release" (Paul Bauer)
+
