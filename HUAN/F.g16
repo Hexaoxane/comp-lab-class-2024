@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=F_gjf_job
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=128
+#SBATCH --mem=512GB
+#SBATCH --time=100:00:00    
+#SBATCH --gres=gpu:mi50:1   
+
+module load gaussian/intel/g16c01
+export GAUSS_SCRDIR=/tmp/$SLURM_JOB_USER/$SLURM_JOB_ID
+g16 F.gjf
+
+echo "Job $SLURM_JOB_ID done at " `date`
+
