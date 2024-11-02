@@ -1,0 +1,49 @@
+# 3D WCA system, random initial configuration
+
+# Parameter settings
+variable initial_temperature equal 3.0
+variable final_temperature equal 0.1
+variable dt equal 0.01
+variable tau equal 100*${dt}
+variable thermo_time equal 1000       # Ensure frequent DCD output for 3D case
+variable equil_steps equal 50000
+variable run_steps equal 100000
+
+units           lj
+atom_style      atomic
+dimension       3                    # Change dimension to 3 for 3D simulation
+
+# Define lattice and region
+lattice         fcc ${density}       # Change lattice type to fcc
+region          box block 0 8 0 8 0 8   # Set the region to be sized 8x8x8
+create_box      1 box
+create_atoms    1 box
+mass 1 1.0
+
+# Set initial velocity
+velocity all create ${initial_temperature} 12345
+
+# Define interactions
+pair_style      lj/cut 1.0
+pair_coeff      1 1 10.0 0.89089871814 1.0
+pair_modify shift yes
+
+# Simulation parameters
+timestep        ${dt}
+thermo          ${thermo_time}
+
+# High-temperature equilibration phase
+fix 1 all nvt temp ${initial_temperature} ${initial_temperature} ${tau}
+run ${equil_steps}
+unfix 1
+
+# Dump settings for trajectory output
+# Output the trajectory information for cooling phase in DCD format, unique file for each density
+dump            1 all dcd ${thermo_time} 3dWCA_density_${density}.dcd
+dump_modify     1 unwrap yes
+
+# Cooling phase, gradually lowering temperature to final_temperature
+fix 1 all nvt temp ${initial_temperature} ${final_temperature} ${tau}
+run ${run_steps}
+unfix 1
+undump 1
