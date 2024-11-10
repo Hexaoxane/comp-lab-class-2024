@@ -1,0 +1,38 @@
+include ${configfile}
+
+shell mkdir -p equil
+
+variable prevbasename string equil/${pot}_T${prevtemp}_n${natoms}_v${volume}_${prevsteps}_${id}
+variable basename string equil/${pot}_T${temp}_n${natoms}_v${volume}_${steps}_${id}
+log ${basename}.log
+
+include ${pot}.lmp
+read_restart ${prevbasename}.final.lmprestart.${prevsteps}
+include ${pot}_particles.lmp
+reset_timestep 0
+
+print "Starting annealing run"
+
+dump 1 all atom ${dumptime} ${basename}.lammpstrj
+
+restart ${restarttime} ${basename}.restart
+restart ${steps} ${basename}.final.lmprestart
+
+thermo ${thermotime}
+timestep ${timestep}
+
+neighbor 0.5 bin
+neigh_modify every 1 delay ${neighborstep} check yes
+
+velocity all create ${temp} ${id} dist gaussian
+fix 1 all nvt temp ${temp} ${temp} ${taut}
+
+# Run the simulation
+run ${steps}
+
+# Save the final configuration as a .data file
+write_data ../Data/kalj_n360_anneal_T${temp}.data
+
+# Cleanup
+unfix 1
+undump 1
