@@ -1,0 +1,1063 @@
+#!/usr/local/bin/vmd
+# VMD script written by save_state $Revision: 1.48 $
+# VMD version: 1.9.4a50
+set viewplist {}
+set fixedlist {}
+proc vmdrestoremymaterials {} {
+  set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2 Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy EdgyShiny EdgyGlass Goodsell AOShiny AOChalky AOEdgy BlownGlass GlassBubble RTChrome Material23 }
+  set mymlist [material list]
+  foreach mat $mlist {
+    if { [lsearch $mymlist $mat] == -1 } { 
+      material add $mat
+    }
+  }
+  material change ambient Opaque 0.000000
+  material change diffuse Opaque 0.760000
+  material change specular Opaque 0.290000
+  material change shininess Opaque 0.530000
+  material change mirror Opaque 0.000000
+  material change opacity Opaque 1.000000
+  material change outline Opaque 4.000000
+  material change outlinewidth Opaque 0.000000
+  material change transmode Opaque 0.000000
+  material change ambient Transparent 0.000000
+  material change diffuse Transparent 0.900000
+  material change specular Transparent 0.500000
+  material change shininess Transparent 0.260000
+  material change mirror Transparent 0.000000
+  material change opacity Transparent 0.430000
+  material change outline Transparent 4.000000
+  material change outlinewidth Transparent 0.250000
+  material change transmode Transparent 0.000000
+  material change ambient BrushedMetal 0.080000
+  material change diffuse BrushedMetal 0.390000
+  material change specular BrushedMetal 0.340000
+  material change shininess BrushedMetal 0.150000
+  material change mirror BrushedMetal 0.000000
+  material change opacity BrushedMetal 1.000000
+  material change outline BrushedMetal 0.000000
+  material change outlinewidth BrushedMetal 0.000000
+  material change transmode BrushedMetal 0.000000
+  material change ambient Diffuse 0.000000
+  material change diffuse Diffuse 0.620000
+  material change specular Diffuse 0.000000
+  material change shininess Diffuse 0.530000
+  material change mirror Diffuse 0.000000
+  material change opacity Diffuse 1.000000
+  material change outline Diffuse 0.000000
+  material change outlinewidth Diffuse 0.000000
+  material change transmode Diffuse 0.000000
+  material change ambient Ghost 0.000000
+  material change diffuse Ghost 0.000000
+  material change specular Ghost 1.000000
+  material change shininess Ghost 0.230000
+  material change mirror Ghost 0.000000
+  material change opacity Ghost 0.100000
+  material change outline Ghost 0.000000
+  material change outlinewidth Ghost 0.000000
+  material change transmode Ghost 0.000000
+  material change ambient Glass1 0.000000
+  material change diffuse Glass1 0.500000
+  material change specular Glass1 0.650000
+  material change shininess Glass1 0.530000
+  material change mirror Glass1 0.000000
+  material change opacity Glass1 0.150000
+  material change outline Glass1 0.000000
+  material change outlinewidth Glass1 0.000000
+  material change transmode Glass1 0.000000
+  material change ambient Glass2 0.520000
+  material change diffuse Glass2 0.760000
+  material change specular Glass2 0.220000
+  material change shininess Glass2 0.590000
+  material change mirror Glass2 0.000000
+  material change opacity Glass2 0.680000
+  material change outline Glass2 0.000000
+  material change outlinewidth Glass2 0.000000
+  material change transmode Glass2 0.000000
+  material change ambient Glass3 0.150000
+  material change diffuse Glass3 0.250000
+  material change specular Glass3 0.750000
+  material change shininess Glass3 0.800000
+  material change mirror Glass3 0.000000
+  material change opacity Glass3 0.500000
+  material change outline Glass3 0.000000
+  material change outlinewidth Glass3 0.000000
+  material change transmode Glass3 0.000000
+  material change ambient Glossy 0.000000
+  material change diffuse Glossy 0.650000
+  material change specular Glossy 1.000000
+  material change shininess Glossy 0.880000
+  material change mirror Glossy 0.000000
+  material change opacity Glossy 1.000000
+  material change outline Glossy 0.000000
+  material change outlinewidth Glossy 0.000000
+  material change transmode Glossy 0.000000
+  material change ambient HardPlastic 0.000000
+  material change diffuse HardPlastic 0.560000
+  material change specular HardPlastic 0.280000
+  material change shininess HardPlastic 0.690000
+  material change mirror HardPlastic 0.000000
+  material change opacity HardPlastic 1.000000
+  material change outline HardPlastic 0.000000
+  material change outlinewidth HardPlastic 0.000000
+  material change transmode HardPlastic 0.000000
+  material change ambient MetallicPastel 0.000000
+  material change diffuse MetallicPastel 0.260000
+  material change specular MetallicPastel 0.550000
+  material change shininess MetallicPastel 0.190000
+  material change mirror MetallicPastel 0.000000
+  material change opacity MetallicPastel 1.000000
+  material change outline MetallicPastel 0.000000
+  material change outlinewidth MetallicPastel 0.000000
+  material change transmode MetallicPastel 0.000000
+  material change ambient Steel 0.250000
+  material change diffuse Steel 0.000000
+  material change specular Steel 0.380000
+  material change shininess Steel 0.320000
+  material change mirror Steel 0.000000
+  material change opacity Steel 1.000000
+  material change outline Steel 0.000000
+  material change outlinewidth Steel 0.000000
+  material change transmode Steel 0.000000
+  material change ambient Translucent 0.000000
+  material change diffuse Translucent 0.700000
+  material change specular Translucent 0.600000
+  material change shininess Translucent 0.300000
+  material change mirror Translucent 0.000000
+  material change opacity Translucent 0.800000
+  material change outline Translucent 0.000000
+  material change outlinewidth Translucent 0.000000
+  material change transmode Translucent 0.000000
+  material change ambient Edgy 0.000000
+  material change diffuse Edgy 0.660000
+  material change specular Edgy 0.000000
+  material change shininess Edgy 0.750000
+  material change mirror Edgy 0.000000
+  material change opacity Edgy 1.000000
+  material change outline Edgy 0.620000
+  material change outlinewidth Edgy 0.940000
+  material change transmode Edgy 0.000000
+  material change ambient EdgyShiny 0.000000
+  material change diffuse EdgyShiny 0.660000
+  material change specular EdgyShiny 0.960000
+  material change shininess EdgyShiny 0.750000
+  material change mirror EdgyShiny 0.000000
+  material change opacity EdgyShiny 1.000000
+  material change outline EdgyShiny 0.760000
+  material change outlinewidth EdgyShiny 0.940000
+  material change transmode EdgyShiny 0.000000
+  material change ambient EdgyGlass 0.000000
+  material change diffuse EdgyGlass 0.660000
+  material change specular EdgyGlass 0.500000
+  material change shininess EdgyGlass 0.750000
+  material change mirror EdgyGlass 0.000000
+  material change opacity EdgyGlass 0.620000
+  material change outline EdgyGlass 0.620000
+  material change outlinewidth EdgyGlass 0.940000
+  material change transmode EdgyGlass 0.000000
+  material change ambient Goodsell 0.520000
+  material change diffuse Goodsell 1.000000
+  material change specular Goodsell 0.000000
+  material change shininess Goodsell 0.000000
+  material change mirror Goodsell 0.000000
+  material change opacity Goodsell 1.000000
+  material change outline Goodsell 4.000000
+  material change outlinewidth Goodsell 0.900000
+  material change transmode Goodsell 0.000000
+  material change ambient AOShiny 0.000000
+  material change diffuse AOShiny 0.850000
+  material change specular AOShiny 0.200000
+  material change shininess AOShiny 0.530000
+  material change mirror AOShiny 0.000000
+  material change opacity AOShiny 1.000000
+  material change outline AOShiny 0.000000
+  material change outlinewidth AOShiny 0.000000
+  material change transmode AOShiny 0.000000
+  material change ambient AOChalky 0.000000
+  material change diffuse AOChalky 0.850000
+  material change specular AOChalky 0.000000
+  material change shininess AOChalky 0.530000
+  material change mirror AOChalky 0.000000
+  material change opacity AOChalky 1.000000
+  material change outline AOChalky 0.000000
+  material change outlinewidth AOChalky 0.000000
+  material change transmode AOChalky 0.000000
+  material change ambient AOEdgy 0.000000
+  material change diffuse AOEdgy 0.900000
+  material change specular AOEdgy 0.200000
+  material change shininess AOEdgy 0.530000
+  material change mirror AOEdgy 0.000000
+  material change opacity AOEdgy 1.000000
+  material change outline AOEdgy 0.620000
+  material change outlinewidth AOEdgy 0.930000
+  material change transmode AOEdgy 0.000000
+  material change ambient BlownGlass 0.040000
+  material change diffuse BlownGlass 0.340000
+  material change specular BlownGlass 1.000000
+  material change shininess BlownGlass 1.000000
+  material change mirror BlownGlass 0.000000
+  material change opacity BlownGlass 0.100000
+  material change outline BlownGlass 0.000000
+  material change outlinewidth BlownGlass 0.000000
+  material change transmode BlownGlass 1.000000
+  material change ambient GlassBubble 0.250000
+  material change diffuse GlassBubble 0.340000
+  material change specular GlassBubble 1.000000
+  material change shininess GlassBubble 1.000000
+  material change mirror GlassBubble 0.000000
+  material change opacity GlassBubble 0.040000
+  material change outline GlassBubble 0.000000
+  material change outlinewidth GlassBubble 0.000000
+  material change transmode GlassBubble 1.000000
+  material change ambient RTChrome 0.000000
+  material change diffuse RTChrome 0.650000
+  material change specular RTChrome 0.500000
+  material change shininess RTChrome 0.530000
+  material change mirror RTChrome 0.700000
+  material change opacity RTChrome 1.000000
+  material change outline RTChrome 0.000000
+  material change outlinewidth RTChrome 0.000000
+  material change transmode RTChrome 0.000000
+  material change ambient Material23 0.000000
+  material change diffuse Material23 0.700000
+  material change specular Material23 0.450000
+  material change shininess Material23 0.534020
+  material change mirror Material23 0.000000
+  material change opacity Material23 0.250000
+  material change outline Material23 4.000000
+  material change outlinewidth Material23 0.560000
+  material change transmode Material23 0.000000
+}
+vmdrestoremymaterials
+# Atom selection macros
+atomselect macro at {resname ADE A THY T}
+atomselect macro acidic {resname ASP GLU}
+atomselect macro cyclic {resname HIS PHE PRO TRP TYR}
+atomselect macro acyclic {protein and not cyclic}
+atomselect macro aliphatic {resname ALA GLY ILE LEU VAL}
+atomselect macro alpha {protein and name CA}
+atomselect macro amino protein
+atomselect macro aromatic {resname HIS PHE TRP TYR}
+atomselect macro basic {resname ARG HIS LYS HSP}
+atomselect macro bonded {numbonds > 0}
+atomselect macro buried {resname ALA LEU VAL ILE PHE CYS MET TRP}
+atomselect macro cg {resname CYT C GUA G}
+atomselect macro charged {basic or acidic}
+atomselect macro hetero {not (protein or nucleic)}
+atomselect macro hydrophobic {resname ALA LEU VAL ILE PRO PHE MET TRP}
+atomselect macro small {resname ALA GLY SER}
+atomselect macro medium {resname VAL THR ASP ASN PRO CYS ASX PCA HYP}
+atomselect macro large {protein and not (small or medium)}
+atomselect macro neutral {resname VAL PHE GLN TYR HIS CYS MET TRP ASX GLX PCA HYP}
+atomselect macro polar {protein and not hydrophobic}
+atomselect macro purine {resname ADE A GUA G}
+atomselect macro pyrimidine {resname CYT C THY T URA U}
+atomselect macro surface {protein and not buried}
+atomselect macro lipid {resname DLPE DMPC DPPC GPC LPPC PALM PC PGCL POPC POPE}
+atomselect macro lipids lipid
+atomselect macro ion {resname AL BA CA CAL CD CES CLA CL CO CS CU CU1 CUA HG IN IOD K LIT MG MN3 MO3 MO4 MO5 MO6 NA NAW OC7 PB POT PT RB SOD TB TL WO4 YB ZN ZN1 ZN2}
+atomselect macro ions ion
+atomselect macro sugar {resname AGLC}
+atomselect macro solvent {not (protein or sugar or nucleic or lipid)}
+atomselect macro glycan {resname NAG BGLN FUC AFUC MAN AMAN BMA BMAN}
+atomselect macro carbon {name "C.*" and not ion}
+atomselect macro hydrogen {name "[0-9]?H.*"}
+atomselect macro nitrogen {name "N.*"}
+atomselect macro oxygen {name "O.*"}
+atomselect macro sulfur {name "S.*" and not ion}
+atomselect macro noh {not hydrogen}
+atomselect macro heme {resname HEM HEME}
+atomselect macro conformationall {altloc ""}
+atomselect macro conformationA {altloc "" or altloc "A"}
+atomselect macro conformationB {altloc "" or altloc "B"}
+atomselect macro conformationC {altloc "" or altloc "C"}
+atomselect macro conformationD {altloc "" or altloc "D"}
+atomselect macro conformationE {altloc "" or altloc "E"}
+atomselect macro conformationF {altloc "" or altloc "F"}
+atomselect macro drude {type DRUD or type LP}
+atomselect macro unparametrized beta<1
+atomselect macro addedmolefacture {occupancy 0.8}
+atomselect macro qwikmd_protein {(not name QWIKMDDELETE and protein)}
+atomselect macro qwikmd_nucleic {(not name QWIKMDDELETE and nucleic)}
+atomselect macro qwikmd_glycan {(not name QWIKMDDELETE and glycan)}
+atomselect macro qwikmd_lipid {(not name QWIKMDDELETE and lipid)}
+atomselect macro qwikmd_hetero {(not name QWIKMDDELETE and hetero and not qwikmd_protein and not qwikmd_lipid and not qwikmd_nucleic and not qwikmd_glycan and not water)}
+# Display settings
+display eyesep       0.065000
+display focallength  2.000000
+display height       6.000000
+display distance     -2.000000
+display projection   Perspective
+display nearclip set 0.500000
+display farclip  set 10.000000
+display depthcue   on
+display cuestart   0.500000
+display cueend     10.000000
+display cuestart   0.500000
+display cueend     10.000000
+display cuedensity 0.320000
+display cuemode    Linear
+display shadows on
+display ambientocclusion on
+display aoambient 0.800000
+display aodirect 0.750000
+display dof off
+display dof_fnumber 64.000000
+display dof_focaldist 0.700000
+mol new D:/QM_E/Week13-QMMM/Inputs/complex.prmtop type parm7 first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile D:/QM_E/Week13-QMMM/Inputs/complex.inpcrd type rst7 first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation NewCartoon 0.300000 10.000000 4.100000 0
+mol color ResName
+mol selection {protein}
+mol material Transparent
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol representation Licorice 0.200000 20.000000 12.000000
+mol color Name
+mol selection {not protein and not water and not (name NA)}
+mol material Opaque
+mol addrep top
+mol selupdate 1 top 0
+mol colupdate 1 top 0
+mol scaleminmax top 1 0.000000 0.000000
+mol smoothrep top 1 0
+mol drawframes top 1 {now}
+mol clipplane center 0 1 top {0.0 0.0 0.0}
+mol clipplane color  0 1 top {0.5 0.5 0.5 }
+mol clipplane normal 0 1 top {0.0 0.0 1.0}
+mol clipplane status 0 1 top {0}
+mol clipplane center 1 1 top {0.0 0.0 0.0}
+mol clipplane color  1 1 top {0.5 0.5 0.5 }
+mol clipplane normal 1 1 top {0.0 0.0 1.0}
+mol clipplane status 1 1 top {0}
+mol clipplane center 2 1 top {0.0 0.0 0.0}
+mol clipplane color  2 1 top {0.5 0.5 0.5 }
+mol clipplane normal 2 1 top {0.0 0.0 1.0}
+mol clipplane status 2 1 top {0}
+mol clipplane center 3 1 top {0.0 0.0 0.0}
+mol clipplane color  3 1 top {0.5 0.5 0.5 }
+mol clipplane normal 3 1 top {0.0 0.0 1.0}
+mol clipplane status 3 1 top {0}
+mol clipplane center 4 1 top {0.0 0.0 0.0}
+mol clipplane color  4 1 top {0.5 0.5 0.5 }
+mol clipplane normal 4 1 top {0.0 0.0 1.0}
+mol clipplane status 4 1 top {0}
+mol clipplane center 5 1 top {0.0 0.0 0.0}
+mol clipplane color  5 1 top {0.5 0.5 0.5 }
+mol clipplane normal 5 1 top {0.0 0.0 1.0}
+mol clipplane status 5 1 top {0}
+mol representation CPK 0.800000 0.300000 11.000000 12.000000
+mol color Name
+mol selection {not protein and not water and not (name NA)}
+mol material Opaque
+mol addrep top
+mol selupdate 2 top 0
+mol colupdate 2 top 0
+mol scaleminmax top 2 0.000000 0.000000
+mol smoothrep top 2 0
+mol drawframes top 2 {now}
+mol clipplane center 0 2 top {0.0 0.0 0.0}
+mol clipplane color  0 2 top {0.5 0.5 0.5 }
+mol clipplane normal 0 2 top {0.0 0.0 1.0}
+mol clipplane status 0 2 top {0}
+mol clipplane center 1 2 top {0.0 0.0 0.0}
+mol clipplane color  1 2 top {0.5 0.5 0.5 }
+mol clipplane normal 1 2 top {0.0 0.0 1.0}
+mol clipplane status 1 2 top {0}
+mol clipplane center 2 2 top {0.0 0.0 0.0}
+mol clipplane color  2 2 top {0.5 0.5 0.5 }
+mol clipplane normal 2 2 top {0.0 0.0 1.0}
+mol clipplane status 2 2 top {0}
+mol clipplane center 3 2 top {0.0 0.0 0.0}
+mol clipplane color  3 2 top {0.5 0.5 0.5 }
+mol clipplane normal 3 2 top {0.0 0.0 1.0}
+mol clipplane status 3 2 top {0}
+mol clipplane center 4 2 top {0.0 0.0 0.0}
+mol clipplane color  4 2 top {0.5 0.5 0.5 }
+mol clipplane normal 4 2 top {0.0 0.0 1.0}
+mol clipplane status 4 2 top {0}
+mol clipplane center 5 2 top {0.0 0.0 0.0}
+mol clipplane color  5 2 top {0.5 0.5 0.5 }
+mol clipplane normal 5 2 top {0.0 0.0 1.0}
+mol clipplane status 5 2 top {0}
+mol rename top complex.prmtop
+set viewpoints([molinfo top]) {{{1 0 0 -42.2692} {0 1 0 -42.7138} {0 0 1 -42.2486} {0 0 0 1}} {{0.657897 -0.121758 0.743199 0} {0.573223 0.721012 -0.389313 0} {-0.488452 0.682147 0.544142 0} {0 0 0 1}} {{0.0834608 0 0 0} {0 0.0834608 0 0} {0 0 0.0834608 0} {0 0 0 1}} {{1 0 0 0.49} {0 1 0 0.38} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+set topmol [molinfo top]
+# done with molecule 0
+foreach v $viewplist {
+  molinfo $v set {center_matrix rotate_matrix scale_matrix global_matrix} $viewpoints($v)
+}
+foreach v $fixedlist {
+  molinfo $v set fixed 1
+}
+unset viewplist
+unset fixedlist
+mol top $topmol
+unset topmol
+proc vmdrestoremycolors {} {
+color scale colors RWB {1.0 0.0 0.0} {1.0 1.0 1.0} {0.0 0.0 1.0}
+color scale colors BWR {0.0 0.0 1.0} {1.0 1.0 1.0} {1.0 0.0 0.0}
+color scale colors RGryB {1.0 0.0 0.0} {0.5 0.5 0.5} {0.0 0.0 1.0}
+color scale colors BGryR {0.0 0.0 1.0} {0.5 0.5 0.5} {1.0 0.0 0.0}
+color scale colors RGB {1.0 0.0 0.0} {0.0 1.0 0.0} {0.0 0.0 1.0}
+color scale colors BGR {0.0 0.0 1.0} {0.0 1.0 0.0} {1.0 0.0 0.0}
+color scale colors RWG {1.0 0.0 0.0} {1.0 1.0 1.0} {0.0 1.0 0.0}
+color scale colors GWR {0.0 1.0 0.0} {1.0 1.0 1.0} {1.0 0.0 0.0}
+color scale colors GWB {0.0 1.0 0.0} {1.0 1.0 1.0} {0.0 0.0 1.0}
+color scale colors BWG {0.0 0.0 1.0} {1.0 1.0 1.0} {0.0 1.0 0.0}
+color scale colors BlkW {0.0 0.0 0.0} {0.5 0.5 0.5} {1.0 1.0 1.0}
+color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
+  color scale method RWB
+  set colorcmds {
+    {color Display {Background} white}
+    {color Display {BackgroundTop} black}
+    {color Display {BackgroundBot} blue2}
+    {color Display {FPS} white}
+    {color Name {LPA} green}
+    {color Name {LPB} green}
+    {color Type {LP} green}
+    {color Type {DRUD} pink}
+    {color Element {X} cyan}
+    {color Element {Ac} ochre}
+    {color Element {Ag} ochre}
+    {color Element {Al} ochre}
+    {color Element {Am} ochre}
+    {color Element {Ar} ochre}
+    {color Element {As} ochre}
+    {color Element {At} ochre}
+    {color Element {Au} ochre}
+    {color Element {B} ochre}
+    {color Element {Ba} ochre}
+    {color Element {Be} ochre}
+    {color Element {Bh} ochre}
+    {color Element {Bi} ochre}
+    {color Element {Bk} ochre}
+    {color Element {Br} ochre}
+    {color Element {Ca} ochre}
+    {color Element {Cd} ochre}
+    {color Element {Ce} ochre}
+    {color Element {Cf} ochre}
+    {color Element {Cl} ochre}
+    {color Element {Cm} ochre}
+    {color Element {Co} ochre}
+    {color Element {Cr} ochre}
+    {color Element {Cs} ochre}
+    {color Element {Cu} ochre}
+    {color Element {Db} ochre}
+    {color Element {Ds} ochre}
+    {color Element {Dy} ochre}
+    {color Element {Er} ochre}
+    {color Element {Es} ochre}
+    {color Element {Eu} ochre}
+    {color Element {F} ochre}
+    {color Element {Fe} ochre}
+    {color Element {Fm} ochre}
+    {color Element {Fr} ochre}
+    {color Element {Ga} ochre}
+    {color Element {Gd} ochre}
+    {color Element {Ge} ochre}
+    {color Element {He} ochre}
+    {color Element {Hf} ochre}
+    {color Element {Hg} ochre}
+    {color Element {Ho} ochre}
+    {color Element {Hs} ochre}
+    {color Element {I} ochre}
+    {color Element {In} ochre}
+    {color Element {Ir} ochre}
+    {color Element {K} ochre}
+    {color Element {Kr} ochre}
+    {color Element {La} ochre}
+    {color Element {Li} ochre}
+    {color Element {Lr} ochre}
+    {color Element {Lu} ochre}
+    {color Element {Md} ochre}
+    {color Element {Mg} ochre}
+    {color Element {Mn} ochre}
+    {color Element {Mo} ochre}
+    {color Element {Mt} ochre}
+    {color Element {Na} ochre}
+    {color Element {Nb} ochre}
+    {color Element {Nd} ochre}
+    {color Element {Ne} ochre}
+    {color Element {Ni} ochre}
+    {color Element {No} ochre}
+    {color Element {Np} ochre}
+    {color Element {Os} ochre}
+    {color Element {Pa} ochre}
+    {color Element {Pb} ochre}
+    {color Element {Pd} ochre}
+    {color Element {Pm} ochre}
+    {color Element {Po} ochre}
+    {color Element {Pr} ochre}
+    {color Element {Pt} ochre}
+    {color Element {Pu} ochre}
+    {color Element {Ra} ochre}
+    {color Element {Rb} ochre}
+    {color Element {Re} ochre}
+    {color Element {Rf} ochre}
+    {color Element {Rg} ochre}
+    {color Element {Rh} ochre}
+    {color Element {Rn} ochre}
+    {color Element {Ru} ochre}
+    {color Element {Sb} ochre}
+    {color Element {Sc} ochre}
+    {color Element {Se} ochre}
+    {color Element {Sg} ochre}
+    {color Element {Si} ochre}
+    {color Element {Sm} ochre}
+    {color Element {Sn} ochre}
+    {color Element {Sr} ochre}
+    {color Element {Ta} ochre}
+    {color Element {Tb} ochre}
+    {color Element {Tc} ochre}
+    {color Element {Te} ochre}
+    {color Element {Th} ochre}
+    {color Element {Ti} ochre}
+    {color Element {Tl} ochre}
+    {color Element {Tm} ochre}
+    {color Element {U} ochre}
+    {color Element {V} ochre}
+    {color Element {W} ochre}
+    {color Element {Xe} ochre}
+    {color Element {Y} ochre}
+    {color Element {Yb} ochre}
+    {color Element {Zr} ochre}
+    {color Resname {HIE} C}
+    {color Resname {HIP} N}
+    {color Resname {HID} O}
+    {color Resname {CHA} F}
+    {color Resname {CHB} Ne}
+    {color Resname {CHC} Na}
+    {color Resname {Na+} Mg}
+    {color Chain {X} blue}
+    {color Segname {} blue}
+    {color Conformation {all} blue}
+    {color Molecule {0} blue}
+    {color Structure {3_10_Helix} blue}
+    {color Surface {Grasp} gray}
+    {color Labels {Springs} orange}
+    {color Stage {Even} gray}
+    {color Stage {Odd} silver}
+  }
+  foreach colcmd $colorcmds {
+    set val [catch {eval $colcmd}]
+  }
+  color change rgb 0 0.0 0.0 1.0
+  color change rgb 2 0.3499999940395355 0.3499999940395355 0.3499999940395355
+  color change rgb 3 1.0 0.5 0.0
+  color change rgb 4 1.0 1.0 0.0
+  color change rgb 5 0.5 0.5 0.20000000298023224
+  color change rgb 6 0.6000000238418579 0.6000000238418579 0.6000000238418579
+  color change rgb 7 0.0 1.0 0.0
+  color change rgb 9 1.0 0.6000000238418579 0.6000000238418579
+  color change rgb 11 0.6499999761581421 0.0 0.6499999761581421
+  color change rgb 12 0.5 0.8999999761581421 0.4000000059604645
+  color change rgb 13 0.8999999761581421 0.4000000059604645 0.699999988079071
+  color change rgb 14 0.5 0.30000001192092896 0.0
+  color change rgb 15 0.5 0.5 0.75
+  color change rgb 17 0.8799999952316284 0.9700000286102295 0.019999999552965164
+  color change rgb 18 0.550000011920929 0.8999999761581421 0.019999999552965164
+  color change rgb 19 0.0 0.8999999761581421 0.03999999910593033
+  color change rgb 20 0.0 0.8999999761581421 0.5
+  color change rgb 21 0.0 0.8799999952316284 1.0
+  color change rgb 22 0.0 0.7599999904632568 1.0
+  color change rgb 23 0.019999999552965164 0.3799999952316284 0.6700000166893005
+  color change rgb 24 0.009999999776482582 0.03999999910593033 0.9300000071525574
+  color change rgb 25 0.27000001072883606 0.0 0.9800000190734863
+  color change rgb 26 0.44999998807907104 0.0 0.8999999761581421
+  color change rgb 27 0.8999999761581421 0.0 0.8999999761581421
+  color change rgb 28 1.0 0.0 0.6600000262260437
+  color change rgb 29 0.9800000190734863 0.0 0.23000000417232513
+  color change rgb 30 0.8100000023841858 0.0 0.0
+  color change rgb 31 0.8899999856948853 0.3499999940395355 0.0
+  color change rgb 32 0.9599999785423279 0.7200000286102295 0.0
+  color change rgb 33 1.0 1.0 1.0
+  color change rgb 34 0.8510000109672546 1.0 1.0
+  color change rgb 35 0.800000011920929 0.5019999742507935 1.0
+  color change rgb 36 0.7608000040054321 1.0 0.0
+  color change rgb 37 1.0 0.7098000049591064 0.7098000049591064
+  color change rgb 38 0.5647000074386597 0.5647000074386597 0.5647000074386597
+  color change rgb 39 0.1881999969482422 0.31369999051094055 0.9725000262260437
+  color change rgb 40 1.0 0.050999999046325684 0.050999999046325684
+  color change rgb 41 0.5647000074386597 0.8784000277519226 0.31369999051094055
+  color change rgb 42 0.7020000219345093 0.8902000188827515 0.9607999920845032
+  color change rgb 43 0.6705999970436096 0.36079999804496765 0.9490000009536743
+  color change rgb 44 0.5411999821662903 1.0 0.0
+  color change rgb 45 0.7490000128746033 0.6510000228881836 0.6510000228881836
+  color change rgb 46 0.9412000179290771 0.7843000292778015 0.6274999976158142
+  color change rgb 47 1.0 0.5019999742507935 0.0
+  color change rgb 48 1.0 1.0 0.1881999969482422
+  color change rgb 49 0.12160000205039978 0.9412000179290771 0.12160000205039978
+  color change rgb 50 0.5019999742507935 0.819599986076355 0.8902000188827515
+  color change rgb 51 0.5608000159263611 0.25099998712539673 0.8313999772071838
+  color change rgb 52 0.23919999599456787 1.0 0.0
+  color change rgb 53 0.9020000100135803 0.9020000100135803 0.9020000100135803
+  color change rgb 54 0.7490000128746033 0.7608000040054321 0.7803999781608582
+  color change rgb 55 0.6510000228881836 0.6510000228881836 0.6705999970436096
+  color change rgb 56 0.5411999821662903 0.6000000238418579 0.7803999781608582
+  color change rgb 57 0.6118000149726868 0.47839999198913574 0.7803999781608582
+  color change rgb 58 0.8784000277519226 0.4000000059604645 0.20000000298023224
+  color change rgb 59 0.9412000179290771 0.5647000074386597 0.6274999976158142
+  color change rgb 60 0.31369999051094055 0.8156999945640564 0.31369999051094055
+  color change rgb 61 0.7843000292778015 0.5019999742507935 0.20000000298023224
+  color change rgb 62 0.490200012922287 0.5019999742507935 0.6901999711990356
+  color change rgb 63 0.7608000040054321 0.5608000159263611 0.5608000159263611
+  color change rgb 64 0.4000000059604645 0.5608000159263611 0.5608000159263611
+  color change rgb 65 0.7411999702453613 0.5019999742507935 0.8902000188827515
+  color change rgb 66 1.0 0.6313999891281128 0.0
+  color change rgb 67 0.6510000228881836 0.1607999950647354 0.1607999950647354
+  color change rgb 68 0.36079999804496765 0.7215999960899353 0.819599986076355
+  color change rgb 69 0.4392000138759613 0.18039999902248383 0.6901999711990356
+  color change rgb 70 0.0 1.0 0.0
+  color change rgb 71 0.5803999900817871 1.0 1.0
+  color change rgb 72 0.5803999900817871 0.8784000277519226 0.8784000277519226
+  color change rgb 73 0.45100000500679016 0.7608000040054321 0.7882000207901001
+  color change rgb 74 0.3294000029563904 0.7098000049591064 0.7098000049591064
+  color change rgb 75 0.2313999980688095 0.6195999979972839 0.6195999979972839
+  color change rgb 76 0.1412000060081482 0.5608000159263611 0.5608000159263611
+  color change rgb 77 0.03920000046491623 0.490200012922287 0.5490000247955322
+  color change rgb 78 0.0 0.41179999709129333 0.5216000080108643
+  color change rgb 79 0.7529000043869019 0.7529000043869019 0.7529000043869019
+  color change rgb 80 1.0 0.8510000109672546 0.5608000159263611
+  color change rgb 81 0.6510000228881836 0.45879998803138733 0.45100000500679016
+  color change rgb 82 0.4000000059604645 0.5019999742507935 0.5019999742507935
+  color change rgb 83 0.6195999979972839 0.3882000148296356 0.7098000049591064
+  color change rgb 84 0.8313999772071838 0.47839999198913574 0.0
+  color change rgb 85 0.5803999900817871 0.0 0.5803999900817871
+  color change rgb 86 0.2587999999523163 0.6195999979972839 0.6901999711990356
+  color change rgb 87 0.34119999408721924 0.09019999951124191 0.5608000159263611
+  color change rgb 88 0.0 0.7882000207901001 0.0
+  color change rgb 89 0.4392000138759613 0.8313999772071838 1.0
+  color change rgb 90 1.0 1.0 0.7803999781608582
+  color change rgb 91 0.8510000109672546 1.0 0.7803999781608582
+  color change rgb 92 0.7803999781608582 1.0 0.7803999781608582
+  color change rgb 93 0.63919997215271 1.0 0.7803999781608582
+  color change rgb 94 0.5608000159263611 1.0 0.7803999781608582
+  color change rgb 95 0.38040000200271606 1.0 0.7803999781608582
+  color change rgb 96 0.27059999108314514 1.0 0.7803999781608582
+  color change rgb 97 0.1881999969482422 1.0 0.7803999781608582
+  color change rgb 98 0.12160000205039978 1.0 0.7803999781608582
+  color change rgb 99 0.0 1.0 0.6118000149726868
+  color change rgb 100 0.0 0.9020000100135803 0.45879998803138733
+  color change rgb 101 0.0 0.8313999772071838 0.3215999901294708
+  color change rgb 102 0.0 0.7490000128746033 0.21960000693798065
+  color change rgb 103 0.0 0.6705999970436096 0.1412000060081482
+  color change rgb 104 0.3019999861717224 0.7608000040054321 1.0
+  color change rgb 105 0.3019999861717224 0.6510000228881836 1.0
+  color change rgb 106 0.12939999997615814 0.5803999900817871 0.8392000198364258
+  color change rgb 107 0.14900000393390656 0.490200012922287 0.6705999970436096
+  color change rgb 108 0.14900000393390656 0.4000000059604645 0.5881999731063843
+  color change rgb 109 0.09019999951124191 0.3294000029563904 0.5293999910354614
+  color change rgb 110 0.8156999945640564 0.8156999945640564 0.8784000277519226
+  color change rgb 111 1.0 0.819599986076355 0.13729999959468842
+  color change rgb 112 0.7215999960899353 0.7215999960899353 0.8156999945640564
+  color change rgb 113 0.6510000228881836 0.3294000029563904 0.3019999861717224
+  color change rgb 114 0.34119999408721924 0.3490000069141388 0.38040000200271606
+  color change rgb 115 0.6195999979972839 0.30979999899864197 0.7098000049591064
+  color change rgb 116 0.6705999970436096 0.36079999804496765 0.0
+  color change rgb 117 0.45879998803138733 0.30979999899864197 0.27059999108314514
+  color change rgb 118 0.2587999999523163 0.5098000168800354 0.5881999731063843
+  color change rgb 119 0.2587999999523163 0.0 0.4000000059604645
+  color change rgb 120 0.0 0.490200012922287 0.0
+  color change rgb 121 0.4392000138759613 0.6705999970436096 0.980400025844574
+  color change rgb 122 0.0 0.7293999791145325 1.0
+  color change rgb 123 0.0 0.6313999891281128 1.0
+  color change rgb 124 0.0 0.5608000159263611 1.0
+  color change rgb 125 0.0 0.5019999742507935 1.0
+  color change rgb 126 0.0 0.4196000099182129 1.0
+  color change rgb 127 0.3294000029563904 0.36079999804496765 0.9490000009536743
+  color change rgb 128 0.4706000089645386 0.36079999804496765 0.8902000188827515
+  color change rgb 129 0.5411999821662903 0.30979999899864197 0.8902000188827515
+  color change rgb 130 0.6313999891281128 0.2117999941110611 0.8313999772071838
+  color change rgb 131 0.7020000219345093 0.12160000205039978 0.8313999772071838
+  color change rgb 132 0.7020000219345093 0.12160000205039978 0.7293999791145325
+  color change rgb 133 0.7020000219345093 0.050999999046325684 0.6510000228881836
+  color change rgb 134 0.7411999702453613 0.050999999046325684 0.5293999910354614
+  color change rgb 135 0.7803999781608582 0.0 0.4000000059604645
+  color change rgb 136 0.800000011920929 0.0 0.3490000069141388
+  color change rgb 137 0.819599986076355 0.0 0.30979999899864197
+  color change rgb 138 0.8510000109672546 0.0 0.27059999108314514
+  color change rgb 139 0.8784000277519226 0.0 0.21960000693798065
+  color change rgb 140 0.9020000100135803 0.0 0.18039999902248383
+  color change rgb 141 0.9215999841690063 0.0 0.14900000393390656
+  color change rgb 142 0.7843000292778015 0.7843000292778015 0.7843000292778015
+  color change rgb 143 0.07840000092983246 0.3528999984264374 1.0
+  color change rgb 144 0.0 0.8626999855041504 0.8626999855041504
+  color change rgb 145 0.9020000100135803 0.03920000046491623 0.03920000046491623
+  color change rgb 146 0.9020000100135803 0.9020000100135803 0.0
+  color change rgb 147 0.0 0.8626999855041504 0.8626999855041504
+  color change rgb 148 0.9020000100135803 0.03920000046491623 0.03920000046491623
+  color change rgb 149 0.9215999841690063 0.9215999841690063 0.9215999841690063
+  color change rgb 150 0.5098000168800354 0.5098000168800354 0.8234999775886536
+  color change rgb 151 0.058800000697374344 0.5098000168800354 0.058800000697374344
+  color change rgb 152 0.058800000697374344 0.5098000168800354 0.058800000697374344
+  color change rgb 153 0.07840000092983246 0.3528999984264374 1.0
+  color change rgb 154 0.9020000100135803 0.9020000100135803 0.0
+  color change rgb 155 0.19609999656677246 0.19609999656677246 0.666700005531311
+  color change rgb 156 0.8626999855041504 0.5881999731063843 0.5098000168800354
+  color change rgb 157 0.980400025844574 0.5881999731063843 0.0
+  color change rgb 158 0.980400025844574 0.5881999731063843 0.0
+  color change rgb 159 0.7059000134468079 0.3528999984264374 0.7059000134468079
+  color change rgb 160 0.19609999656677246 0.19609999656677246 0.666700005531311
+  color change rgb 161 0.058800000697374344 0.5098000168800354 0.058800000697374344
+  color change rgb 162 1.0 0.41179999709129333 0.7059000134468079
+  color change rgb 163 1.0 0.41179999709129333 0.7059000134468079
+  color change rgb 164 0.7451000213623047 0.6274999976158142 0.43140000104904175
+  color change rgb 165 0.9412000179290771 0.9725000262260437 1.0
+  color change rgb 166 0.980400025844574 0.9215999841690063 0.8431000113487244
+  color change rgb 167 0.0 1.0 1.0
+  color change rgb 168 0.49799999594688416 1.0 0.8313999772071838
+  color change rgb 169 0.9412000179290771 1.0 1.0
+  color change rgb 170 0.9607999920845032 0.9607999920845032 0.8626999855041504
+  color change rgb 171 1.0 0.89410001039505 0.7685999870300293
+  color change rgb 172 1.0 0.9215999841690063 0.8039000034332275
+  color change rgb 173 0.5411999821662903 0.16859999299049377 0.8863000273704529
+  color change rgb 174 0.6470999717712402 0.1647000014781952 0.1647000014781952
+  color change rgb 175 0.8705999851226807 0.7215999960899353 0.5293999910354614
+  color change rgb 176 0.3725000023841858 0.6195999979972839 0.6274999976158142
+  color change rgb 177 0.49799999594688416 1.0 0.0
+  color change rgb 178 0.8234999775886536 0.41179999709129333 0.11760000139474869
+  color change rgb 179 1.0 0.49799999594688416 0.31369999051094055
+  color change rgb 180 0.3921999931335449 0.5842999815940857 0.9294000267982483
+  color change rgb 181 1.0 0.9725000262260437 0.8626999855041504
+  color change rgb 182 0.8626999855041504 0.07840000092983246 0.2353000044822693
+  color change rgb 183 0.0 0.0 0.5450999736785889
+  color change rgb 184 0.0 0.5450999736785889 0.5450999736785889
+  color change rgb 185 0.7215999960899353 0.5254999995231628 0.04309999942779541
+  color change rgb 186 0.6626999974250793 0.6626999974250793 0.6626999974250793
+  color change rgb 187 0.0 0.3921999931335449 0.0
+  color change rgb 188 0.7411999702453613 0.7175999879837036 0.4196000099182129
+  color change rgb 189 0.5450999736785889 0.0 0.5450999736785889
+  color change rgb 190 0.33329999446868896 0.4196000099182129 0.1843000054359436
+  color change rgb 191 1.0 0.5490000247955322 0.0
+  color change rgb 192 0.6000000238418579 0.19609999656677246 0.800000011920929
+  color change rgb 193 0.5450999736785889 0.0 0.0
+  color change rgb 194 0.9136999845504761 0.5881999731063843 0.47839999198913574
+  color change rgb 195 0.5608000159263611 0.7372999787330627 0.5608000159263611
+  color change rgb 196 0.2824000120162964 0.23919999599456787 0.5450999736785889
+  color change rgb 197 0.1843000054359436 0.30979999899864197 0.30979999899864197
+  color change rgb 198 0.0 0.8077999949455261 0.819599986076355
+  color change rgb 199 0.5803999900817871 0.0 0.8274999856948853
+  color change rgb 200 1.0 0.07840000092983246 0.5764999985694885
+  color change rgb 201 0.0 0.7490000128746033 1.0
+  color change rgb 202 0.41179999709129333 0.41179999709129333 0.41179999709129333
+  color change rgb 203 0.11760000139474869 0.5647000074386597 1.0
+  color change rgb 204 0.6980000138282776 0.13330000638961792 0.13330000638961792
+  color change rgb 205 1.0 0.980400025844574 0.9412000179290771
+  color change rgb 206 0.13330000638961792 0.5450999736785889 0.13330000638961792
+  color change rgb 207 1.0 0.0 1.0
+  color change rgb 208 0.8626999855041504 0.8626999855041504 0.8626999855041504
+  color change rgb 209 0.9725000262260437 0.9725000262260437 1.0
+  color change rgb 210 1.0 0.8431000113487244 0.0
+  color change rgb 211 0.8549000024795532 0.6470999717712402 0.12549999356269836
+  color change rgb 212 0.6783999800682068 1.0 0.1843000054359436
+  color change rgb 213 0.9412000179290771 1.0 0.9412000179290771
+  color change rgb 214 1.0 0.41179999709129333 0.7059000134468079
+  color change rgb 215 0.8039000034332275 0.36079999804496765 0.36079999804496765
+  color change rgb 216 0.29409998655319214 0.0 0.5098000168800354
+  color change rgb 217 1.0 1.0 0.9412000179290771
+  color change rgb 218 0.9412000179290771 0.9020000100135803 0.5490000247955322
+  color change rgb 219 0.9020000100135803 0.9020000100135803 0.980400025844574
+  color change rgb 220 1.0 0.9412000179290771 0.9607999920845032
+  color change rgb 221 0.486299991607666 0.9882000088691711 0.0
+  color change rgb 222 1.0 0.980400025844574 0.8039000034332275
+  color change rgb 223 0.6783999800682068 0.847100019454956 0.9020000100135803
+  color change rgb 224 0.9412000179290771 0.5019999742507935 0.5019999742507935
+  color change rgb 225 0.8784000277519226 1.0 1.0
+  color change rgb 226 0.980400025844574 0.980400025844574 0.8234999775886536
+  color change rgb 227 0.5647000074386597 0.9333000183105469 0.5647000074386597
+  color change rgb 228 0.8274999856948853 0.8274999856948853 0.8274999856948853
+  color change rgb 229 1.0 0.713699996471405 0.7569000124931335
+  color change rgb 230 1.0 0.6274999976158142 0.47839999198913574
+  color change rgb 231 0.12549999356269836 0.6980000138282776 0.666700005531311
+  color change rgb 232 0.5293999910354614 0.8077999949455261 0.980400025844574
+  color change rgb 233 0.4666999876499176 0.53329998254776 0.6000000238418579
+  color change rgb 234 0.6901999711990356 0.7685999870300293 0.8705999851226807
+  color change rgb 235 1.0 1.0 0.8784000277519226
+  color change rgb 236 0.19609999656677246 0.8039000034332275 0.19609999656677246
+  color change rgb 237 0.980400025844574 0.9412000179290771 0.9020000100135803
+  color change rgb 238 0.5019999742507935 0.0 0.0
+  color change rgb 239 0.4000000059604645 0.8039000034332275 0.666700005531311
+  color change rgb 240 0.0 0.0 0.8039000034332275
+  color change rgb 241 0.7293999791145325 0.33329999446868896 0.8274999856948853
+  color change rgb 242 0.5764999985694885 0.4392000138759613 0.8587999939918518
+  color change rgb 243 0.2353000044822693 0.7020000219345093 0.4431000053882599
+  color change rgb 244 0.48240000009536743 0.40779998898506165 0.9333000183105469
+  color change rgb 245 0.0 0.980400025844574 0.6039000153541565
+  color change rgb 246 0.2824000120162964 0.819599986076355 0.800000011920929
+  color change rgb 247 0.7803999781608582 0.08240000158548355 0.5216000080108643
+  color change rgb 248 0.09799999743700027 0.09799999743700027 0.4392000138759613
+  color change rgb 249 0.9607999920845032 1.0 0.980400025844574
+  color change rgb 250 1.0 0.89410001039505 0.8823999762535095
+  color change rgb 251 1.0 0.89410001039505 0.7098000049591064
+  color change rgb 252 1.0 0.8705999851226807 0.6783999800682068
+  color change rgb 253 0.0 0.0 0.5019999742507935
+  color change rgb 254 0.9922000169754028 0.9607999920845032 0.9020000100135803
+  color change rgb 255 0.5019999742507935 0.5019999742507935 0.0
+  color change rgb 256 0.4196000099182129 0.5569000244140625 0.13729999959468842
+  color change rgb 257 1.0 0.27059999108314514 0.0
+  color change rgb 258 0.8549000024795532 0.4392000138759613 0.8392000198364258
+  color change rgb 259 0.9333000183105469 0.9097999930381775 0.666700005531311
+  color change rgb 260 0.5960999727249146 0.9843000173568726 0.5960999727249146
+  color change rgb 261 0.6862999796867371 0.9333000183105469 0.9333000183105469
+  color change rgb 262 0.8587999939918518 0.4392000138759613 0.5764999985694885
+  color change rgb 263 1.0 0.9373000264167786 0.8353000283241272
+  color change rgb 264 1.0 0.8549000024795532 0.7254999876022339
+  color change rgb 265 0.8039000034332275 0.5216000080108643 0.24709999561309814
+  color change rgb 266 0.8666999936103821 0.6274999976158142 0.8666999936103821
+  color change rgb 267 0.6901999711990356 0.8784000277519226 0.9020000100135803
+  color change rgb 268 0.7372999787330627 0.5608000159263611 0.5608000159263611
+  color change rgb 269 0.2549000084400177 0.41179999709129333 0.8823999762535095
+  color change rgb 270 0.5450999736785889 0.27059999108314514 0.07450000196695328
+  color change rgb 271 0.980400025844574 0.5019999742507935 0.4471000134944916
+  color change rgb 272 0.9569000005722046 0.6431000232696533 0.3765000104904175
+  color change rgb 273 0.18039999902248383 0.5450999736785889 0.34119999408721924
+  color change rgb 274 1.0 0.9607999920845032 0.9333000183105469
+  color change rgb 275 0.6274999976158142 0.3215999901294708 0.17649999260902405
+  color change rgb 276 0.5293999910354614 0.8077999949455261 0.9215999841690063
+  color change rgb 277 0.4156999886035919 0.3528999984264374 0.8039000034332275
+  color change rgb 278 0.4392000138759613 0.5019999742507935 0.5647000074386597
+  color change rgb 279 1.0 0.980400025844574 0.980400025844574
+  color change rgb 280 0.0 1.0 0.49799999594688416
+  color change rgb 281 0.2745000123977661 0.5098000168800354 0.7059000134468079
+  color change rgb 282 0.0 0.5019999742507935 0.5019999742507935
+  color change rgb 283 0.847100019454956 0.7490000128746033 0.847100019454956
+  color change rgb 284 1.0 0.3882000148296356 0.2784000039100647
+  color change rgb 285 0.25099998712539673 0.8784000277519226 0.8156999945640564
+  color change rgb 286 0.9333000183105469 0.5098000168800354 0.9333000183105469
+  color change rgb 287 0.9607999920845032 0.8705999851226807 0.7020000219345093
+  color change rgb 288 0.9607999920845032 0.9607999920845032 0.9607999920845032
+  color change rgb 289 0.6039000153541565 0.8039000034332275 0.19609999656677246
+  color change rgb 290 0.0 0.0 0.0
+  color change rgb 291 0.0 0.0 0.0
+  color change rgb 292 0.0 0.0 0.0
+  color change rgb 293 0.0 0.0 0.0
+  color change rgb 294 0.0 0.0 0.0
+  color change rgb 295 0.0 0.0 0.0
+  color change rgb 296 0.0 0.0 0.0
+  color change rgb 297 0.0 0.0 0.0
+  color change rgb 298 0.0 0.0 0.0
+  color change rgb 299 0.0 0.0 0.0
+  color change rgb 300 0.0 0.0 0.0
+  color change rgb 301 0.0 0.0 0.0
+  color change rgb 302 0.0 0.0 0.0
+  color change rgb 303 0.0 0.0 0.0
+  color change rgb 304 0.0 0.0 0.0
+  color change rgb 305 0.0 0.0 0.0
+  color change rgb 306 0.0 0.0 0.0
+  color change rgb 307 0.0 0.0 0.0
+  color change rgb 308 0.0 0.0 0.0
+  color change rgb 309 0.0 0.0 0.0
+  color change rgb 310 0.0 0.0 0.0
+  color change rgb 311 0.0 0.0 0.0
+  color change rgb 312 0.0 0.0 0.0
+  color change rgb 313 0.0 0.0 0.0
+  color change rgb 314 0.0 0.0 0.0
+  color change rgb 315 0.0 0.0 0.0
+  color change rgb 316 0.0 0.0 0.0
+  color change rgb 317 0.0 0.0 0.0
+  color change rgb 318 0.0 0.0 0.0
+  color change rgb 319 0.0 0.0 0.0
+  color change rgb 320 0.0 0.0 0.0
+  color change rgb 321 0.0 0.0 0.0
+  color change rgb 322 0.0 0.0 0.0
+  color change rgb 323 0.0 0.0 0.0
+  color change rgb 324 0.0 0.0 0.0
+  color change rgb 325 0.0 0.0 0.0
+  color change rgb 326 0.0 0.0 0.0
+  color change rgb 327 0.0 0.0 0.0
+  color change rgb 328 0.0 0.0 0.0
+  color change rgb 329 0.0 0.0 0.0
+  color change rgb 330 0.0 0.0 0.0
+  color change rgb 331 0.0 0.0 0.0
+  color change rgb 332 0.0 0.0 0.0
+  color change rgb 333 0.0 0.0 0.0
+  color change rgb 334 0.0 0.0 0.0
+  color change rgb 335 0.0 0.0 0.0
+  color change rgb 336 0.0 0.0 0.0
+  color change rgb 337 0.0 0.0 0.0
+  color change rgb 338 0.0 0.0 0.0
+  color change rgb 339 0.0 0.0 0.0
+  color change rgb 340 0.0 0.0 0.0
+  color change rgb 341 0.0 0.0 0.0
+  color change rgb 342 0.0 0.0 0.0
+  color change rgb 343 0.0 0.0 0.0
+  color change rgb 344 0.0 0.0 0.0
+  color change rgb 345 0.0 0.0 0.0
+  color change rgb 346 0.0 0.0 0.0
+  color change rgb 347 0.0 0.0 0.0
+  color change rgb 348 0.0 0.0 0.0
+  color change rgb 349 0.0 0.0 0.0
+  color change rgb 350 0.0 0.0 0.0
+  color change rgb 351 0.0 0.0 0.0
+  color change rgb 352 0.0 0.0 0.0
+  color change rgb 353 0.0 0.0 0.0
+  color change rgb 354 0.0 0.0 0.0
+  color change rgb 355 0.0 0.0 0.0
+  color change rgb 356 0.0 0.0 0.0
+  color change rgb 357 0.0 0.0 0.0
+  color change rgb 358 0.0 0.0 0.0
+  color change rgb 359 0.0 0.0 0.0
+  color change rgb 360 0.0 0.0 0.0
+  color change rgb 361 0.0 0.0 0.0
+  color change rgb 362 0.0 0.0 0.0
+  color change rgb 363 0.0 0.0 0.0
+  color change rgb 364 0.0 0.0 0.0
+  color change rgb 365 0.0 0.0 0.0
+  color change rgb 366 0.0 0.0 0.0
+  color change rgb 367 0.0 0.0 0.0
+  color change rgb 368 0.0 0.0 0.0
+  color change rgb 369 0.0 0.0 0.0
+  color change rgb 370 0.0 0.0 0.0
+  color change rgb 371 0.0 0.0 0.0
+  color change rgb 372 0.0 0.0 0.0
+  color change rgb 373 0.0 0.0 0.0
+  color change rgb 374 0.0 0.0 0.0
+  color change rgb 375 0.0 0.0 0.0
+  color change rgb 376 0.0 0.0 0.0
+  color change rgb 377 0.0 0.0 0.0
+  color change rgb 378 0.0 0.0 0.0
+  color change rgb 379 0.0 0.0 0.0
+  color change rgb 380 0.0 0.0 0.0
+  color change rgb 381 0.0 0.0 0.0
+  color change rgb 382 0.0 0.0 0.0
+  color change rgb 383 0.0 0.0 0.0
+  color change rgb 384 0.0 0.0 0.0
+  color change rgb 385 0.0 0.0 0.0
+  color change rgb 386 0.0 0.0 0.0
+  color change rgb 387 0.0 0.0 0.0
+  color change rgb 388 0.0 0.0 0.0
+  color change rgb 389 0.0 0.0 0.0
+  color change rgb 390 0.0 0.0 0.0
+  color change rgb 391 0.0 0.0 0.0
+  color change rgb 392 0.0 0.0 0.0
+  color change rgb 393 0.0 0.0 0.0
+  color change rgb 394 0.0 0.0 0.0
+  color change rgb 395 0.0 0.0 0.0
+  color change rgb 396 0.0 0.0 0.0
+  color change rgb 397 0.0 0.0 0.0
+  color change rgb 398 0.0 0.0 0.0
+  color change rgb 399 0.0 0.0 0.0
+  color change rgb 400 0.0 0.0 0.0
+  color change rgb 401 0.0 0.0 0.0
+  color change rgb 402 0.0 0.0 0.0
+  color change rgb 403 0.0 0.0 0.0
+  color change rgb 404 0.0 0.0 0.0
+  color change rgb 405 0.0 0.0 0.0
+  color change rgb 406 0.0 0.0 0.0
+  color change rgb 407 0.0 0.0 0.0
+  color change rgb 408 0.0 0.0 0.0
+  color change rgb 409 0.0 0.0 0.0
+  color change rgb 410 0.0 0.0 0.0
+  color change rgb 411 0.0 0.0 0.0
+  color change rgb 412 0.0 0.0 0.0
+  color change rgb 413 0.0 0.0 0.0
+  color change rgb 414 0.0 0.0 0.0
+  color change rgb 415 0.0 0.0 0.0
+  color change rgb 416 0.0 0.0 0.0
+  color change rgb 417 0.0 0.0 0.0
+  color change rgb 418 0.0 0.0 0.0
+  color change rgb 419 0.0 0.0 0.0
+  color change rgb 420 0.0 0.0 0.0
+  color change rgb 421 0.0 0.0 0.0
+  color change rgb 422 0.0 0.0 0.0
+  color change rgb 423 0.0 0.0 0.0
+  color change rgb 424 0.0 0.0 0.0
+  color change rgb 425 0.0 0.0 0.0
+  color change rgb 426 0.0 0.0 0.0
+  color change rgb 427 0.0 0.0 0.0
+  color change rgb 428 0.0 0.0 0.0
+  color change rgb 429 0.0 0.0 0.0
+  color change rgb 430 0.0 0.0 0.0
+  color change rgb 431 0.0 0.0 0.0
+  color change rgb 432 0.0 0.0 0.0
+  color change rgb 433 0.0 0.0 0.0
+  color change rgb 434 0.0 0.0 0.0
+  color change rgb 435 0.0 0.0 0.0
+  color change rgb 436 0.0 0.0 0.0
+  color change rgb 437 0.0 0.0 0.0
+  color change rgb 438 0.0 0.0 0.0
+  color change rgb 439 0.0 0.0 0.0
+  color change rgb 440 0.0 0.0 0.0
+  color change rgb 441 0.0 0.0 0.0
+  color change rgb 442 0.0 0.0 0.0
+  color change rgb 443 0.0 0.0 0.0
+  color change rgb 444 0.0 0.0 0.0
+  color change rgb 445 0.0 0.0 0.0
+  color change rgb 446 0.0 0.0 0.0
+  color change rgb 447 0.0 0.0 0.0
+  color change rgb 448 0.0 0.0 0.0
+  color change rgb 449 0.0 0.0 0.0
+  color change rgb 450 0.0 0.0 0.0
+  color change rgb 451 0.0 0.0 0.0
+  color change rgb 452 0.0 0.0 0.0
+  color change rgb 453 0.0 0.0 0.0
+  color change rgb 454 0.0 0.0 0.0
+  color change rgb 455 0.0 0.0 0.0
+  color change rgb 456 0.0 0.0 0.0
+  color change rgb 457 0.0 0.0 0.0
+  color change rgb 458 0.0 0.0 0.0
+  color change rgb 459 0.0 0.0 0.0
+  color change rgb 460 0.0 0.0 0.0
+  color change rgb 461 0.0 0.0 0.0
+  color change rgb 462 0.0 0.0 0.0
+  color change rgb 463 0.0 0.0 0.0
+  color change rgb 464 0.0 0.0 0.0
+  color change rgb 465 0.0 0.0 0.0
+  color change rgb 466 0.0 0.0 0.0
+  color change rgb 467 0.0 0.0 0.0
+  color change rgb 468 0.0 0.0 0.0
+  color change rgb 469 0.0 0.0 0.0
+  color change rgb 470 0.0 0.0 0.0
+  color change rgb 471 0.0 0.0 0.0
+  color change rgb 472 0.0 0.0 0.0
+  color change rgb 473 0.0 0.0 0.0
+  color change rgb 474 0.0 0.0 0.0
+  color change rgb 475 0.0 0.0 0.0
+  color change rgb 476 0.0 0.0 0.0
+  color change rgb 477 0.0 0.0 0.0
+  color change rgb 478 0.0 0.0 0.0
+  color change rgb 479 0.0 0.0 0.0
+  color change rgb 480 0.0 0.0 0.0
+  color change rgb 481 0.0 0.0 0.0
+  color change rgb 482 0.0 0.0 0.0
+  color change rgb 483 0.0 0.0 0.0
+  color change rgb 484 0.0 0.0 0.0
+  color change rgb 485 0.0 0.0 0.0
+  color change rgb 486 0.0 0.0 0.0
+  color change rgb 487 0.0 0.0 0.0
+  color change rgb 488 0.0 0.0 0.0
+  color change rgb 489 0.0 0.0 0.0
+}
+vmdrestoremycolors
+label textsize 1.0
